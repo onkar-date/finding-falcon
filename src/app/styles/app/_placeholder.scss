@@ -1,0 +1,18 @@
+.ph-table{
+    td{
+        padding: 1.5rem !important;
+    }
+    .ph-item{
+        margin-bottom: 0;
+        padding: 0;
+        border-radius: 50rem !important;
+    }
+    .ph-item > * {
+        display: flex;
+        flex: 1 1 auto;
+        flex-flow: column;
+        margin-bottom: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
