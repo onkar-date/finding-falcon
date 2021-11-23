@@ -12,3 +12,12 @@ button.no-style{
     font-size: 1rem;
     line-height: 1.5;
 }
+
+.btn-custom-primary{
+    @extend .custom-primary-bg;
+}
+
+.btn-custom-primary:hover{
+    @extend .custom-primary-bg;
+    color: $white;
+}

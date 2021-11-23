@@ -5,14 +5,13 @@ import RequestBodyHelper from 'src/app/shared/helpers/request-body.helper';
 import { IPlanet } from 'src/app/shared/interfaces/planets.interface';
 import { IVehicle } from 'src/app/shared/interfaces/vehicle.interface';
 import { FalconService } from 'src/app/shared/services/falcon.service';
-import ConfettiGenerator from "confetti-js";
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-mission',
   templateUrl: './mission.component.html',
   styles: [],
 })
 export class MissionComponent implements OnInit {
-  public confetti: ConfettiGenerator;
   planetsData: IPlanet[] = null;
   vehiclesData: IVehicle[] = null;
   selectedPlanets = [
@@ -34,18 +33,16 @@ export class MissionComponent implements OnInit {
     },
   ];
   vehicleAvailability = {};
-  falconFoundOnPlanet = '';
   totalTimeTaken = 0;
   constructor(
     private falconService: FalconService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   async ngOnInit(): Promise<void> {
     this.planetsData = await this.getPlanetsData();
     this.vehiclesData = await this.getVehicleSData();
-    console.log(this.vehiclesData);
-    
     this.setVehicleAvailability();
   }
 
@@ -82,7 +79,6 @@ export class MissionComponent implements OnInit {
   }
 
   reset(): void {
-    this.clearConfetti();
     this.totalTimeTaken = 0;
     this.selectedPlanets.forEach(selection => {
       if (selection.planet) {
@@ -101,35 +97,13 @@ export class MissionComponent implements OnInit {
       );
       const res = await this.falconService.findFalcon(reqBody);
       if (res.status === 'success') {
-        this.toastr.success(`Falcon Found on planet ${res.planet_name}`);
-        this.falconFoundOnPlanet = res.planet_name;
-        this.showConfetti();
+        this.router.navigate([`result/${res.planet_name}/${this.totalTimeTaken}`])
       } else {
         this.toastr.error('Falcon not found... Mission failed...!!!');
       }
     } else {
       this.toastr.error('Please select all the targets and vehicles...!!');
     }
-  }
-
-  showConfetti() {
-    document.getElementById('my-canvas').style.zIndex = '999';
-    var confettiSettings = { target: 'my-canvas' };
-    this.confetti = new ConfettiGenerator(confettiSettings);
-    this.confetti.render();
-    setTimeout( () => {
-      this.clearConfetti();
-    }, 3000); // Stop confetti after 3 seconds
-  }
-
-  clearConfetti() {
-    document.getElementById('my-canvas').style.zIndex = 'unset';
-    this.confetti?.clear();
-    this.clearFalconFoundPlanet();
-  }
-
-  clearFalconFoundPlanet() {
-    this.falconFoundOnPlanet = '';
   }
 
   isDataValid(): boolean {

@@ -1,4 +1,4 @@
-import { clientStoreConfig } from './../../../client-store.config';
+import { clientStoreConfig } from '../../client-store.config';
 import { Injectable } from '@angular/core';
 import * as localforage from 'localforage';
 @Injectable({

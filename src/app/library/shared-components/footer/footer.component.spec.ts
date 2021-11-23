@@ -22,4 +22,8 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should test visit method', () => {
+    component.visit({url: 'test'})
+    expect(component).toBeTruthy();
+  });
 });

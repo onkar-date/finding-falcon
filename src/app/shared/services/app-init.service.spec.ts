@@ -13,4 +13,8 @@ describe('AppInitService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  it('should test init method', async () => {
+    const res = await service.init()
+    expect(res).toEqual(true);
+  });
 });

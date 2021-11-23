@@ -1,0 +1,25 @@
+<canvas id="my-canvas"></canvas>
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col-md-6 offset-md-3">
+      <div class="card shadow-lg">
+        <div class="card-body text-center custom-primary-bg text-white">
+          <h1>
+            Success!! 
+          </h1>
+          <h2>
+            Congratulations on Finding Falcone. King Shan is mightly
+            pleased
+          </h2>
+          <br><br>
+          <h3>Time Taken :- {{ timeTaken }}</h3>
+
+          <h3 class="mt-2">Planet Found :- {{ planetName }}</h3>
+
+          <br><br>
+          <button class="btn btn-sm btn-light" (click)="startAgain()">Start Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

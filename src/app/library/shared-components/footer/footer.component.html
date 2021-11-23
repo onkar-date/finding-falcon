@@ -1,6 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-    <a class="navbar-brand" href="#">onkar-date</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </nav>
+<div class="container-fluid custom-secondary-bg mt-5 footer-text">
+  <div class="row pt-2">
+    <div class="col-12">
+      <div class="d-flex justify-content-center">
+        <h4>Like my work? Contact me at</h4>
+      </div>
+    </div>
+
+    <div class="col-12 my-4">
+      <div class="d-flex justify-content-around">
+        <div *ngFor="let contact of social">
+          <button class="btn no-style" (click)="visit(contact)">
+            <i class="{{ contact.class }}"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 d-flex justify-content-center h5">
+      <span>onkar-date</span>
+    </div>
+  </div>
+</div>

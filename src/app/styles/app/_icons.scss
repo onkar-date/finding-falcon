@@ -1,0 +1,26 @@
+@import '../../../../node_modules/font-awesome/scss/font-awesome.scss';
+
+i{  
+    transition: 0.5s ease;
+    &.fa:hover{
+        transform: scale(1.5);
+    }
+}
+
+.fa-facebook-square:before{
+    color: #4267B2;
+}
+
+.fa-instagram{
+    color: transparent;
+    background: -webkit-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background: -o-radial-gradient(30% 107%, circle, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.fa-linkedin-square{
+    color: #0e76a8;
+}

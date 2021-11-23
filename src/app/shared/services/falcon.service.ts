@@ -25,7 +25,7 @@ export class FalconService {
     return vehicleData;
   }
 
-  async gettoken(): Promise<any> {
+  async getToken(): Promise<any> {
     const tokenUrl = APIUrl.token;
     const token = await this.wrapperService.Api(ApiMethod.POST, tokenUrl, null, {});
     return token.token;
@@ -33,7 +33,7 @@ export class FalconService {
 
   async findFalcon(requestBody: any): Promise<any> {
     const findFalconUrl = APIUrl.findFalcon;
-    const token = await this.gettoken();
+    const token = await this.getToken();
     requestBody.token = token;
     const response = await this.wrapperService.Api(ApiMethod.POST, findFalconUrl, null, requestBody);
     return response;

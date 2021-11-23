@@ -1,3 +1,4 @@
+import { LoaderService } from './shared/services/loader.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'findingFalcon';
+
+  constructor(
+    public loaderService: LoaderService
+  ) {}
 }

@@ -10,15 +10,6 @@ export class AppInitService {
   constructor() { }
 
   public init(): Promise<any> {
-    return from(
-      fetch('assets/config/app-config.json', { cache: 'no-cache' }).then(response => {
-        return response.json();
-      })
-    ).pipe(
-      map(config => {
-        window.config = config;
-        return config;
-      })
-    ).toPromise();
+    return Promise.resolve(true);
   }
 }

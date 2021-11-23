@@ -3,6 +3,4 @@ export interface IVehicle {
   total_no: number;
   max_distance: number;
   speed: number;
-  available: number;
-  canTravel: boolean;
 }

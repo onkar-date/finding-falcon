@@ -7,9 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MissionComponent } from './mission/mission.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
-  declarations: [MissionComponent],
+  declarations: [MissionComponent, ResultComponent],
   imports: [
     CommonModule,
     ScreensRoutingModule,
